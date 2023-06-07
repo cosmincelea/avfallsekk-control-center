@@ -292,11 +292,3 @@ export const AccountSocialButtonMetaMask = styled(AccountSocialButton)`
 export const AccountSocialButtonAuth0 = styled(AccountSocialButton)`
 `;
 
-export const AccountSocialButtonWalletConnect = styled(AccountSocialButton)`
-  background: #3396ff;
-  padding: 5px;
-
-  &:hover {
-    background: ${darken(0.1, '#3396ff')};
-  }
-`;

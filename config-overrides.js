@@ -43,6 +43,7 @@ module.exports = override(
                 stream: require.resolve('stream-browserify'),
             },
         },
+        devtool: 'inline-source-map',
         ignoreWarnings: [/Failed to parse source map/],
   }),
 );

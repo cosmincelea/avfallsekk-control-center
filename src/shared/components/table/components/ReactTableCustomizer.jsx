@@ -9,7 +9,7 @@ import {
 } from 'react-bootstrap';
 import DownIcon from 'mdi-react/ChevronDownIcon';
 import {
- colorAdditional, colorBackground, colorBorder, colorIcon, colorText, 
+  colorAdditional, colorBackground, colorBorder, colorIcon, colorText,
 } from '@/utils/palette';
 import { right } from '@/utils/directions';
 import ReactTableCustomizerToggle from './ReactTableCustomizerToggle';
@@ -132,7 +132,7 @@ const ReactTableCustomizer = ({
                     >
                       {toggle}
                     </OverlayTrigger>
-                );
+                  );
                 })}
               </CollapseItem>
             )}
@@ -163,9 +163,9 @@ ReactTableCustomizer.propTypes = {
 };
 
 ReactTableCustomizer.defaultProps = {
-  handleClickIsEditable: () => {},
-  handleClickIsResizable: () => {},
-  handleClickWithDragAndDrop: () => {},
+  handleClickIsEditable: () => { },
+  handleClickIsResizable: () => { },
+  handleClickWithDragAndDrop: () => { },
   isEditable: false,
   isResizable: false,
   isDisabledDragAndDrop: false,

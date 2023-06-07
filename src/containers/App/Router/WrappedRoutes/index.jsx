@@ -21,9 +21,7 @@ import Account from './Account';
 import ECommerce from './ECommerce';
 import DefaultPages from './DefaultPages';
 import Documentation from './Documentation';
-import ConnectWallet from '../../../Dashboards/Wallet/ConnectWallet';
 import FinanceDashboard from '../../../Dashboards/Finance';
-import Wallet from '../../../Dashboards/Wallet';
 
 export default () => (
   <div>
@@ -31,7 +29,6 @@ export default () => (
     <ContainerWrap>
       <Route path="/e_commerce_dashboard" component={Commerce} />
       <Route path="/online_marketing_dashboard" component={OnLineMarketingDashboard} />
-      <Route path="/connect_wallet" component={ConnectWallet} />
       <Route exact path="/app_dashboard" component={AppDashboard} />
       <Route path="/booking_dashboard" component={BookingDashboard} />
       <Route exact path="/finance_dashboard" component={FinanceDashboard} />
@@ -48,7 +45,6 @@ export default () => (
       <Route path="/e-commerce" component={ECommerce} />
       <Route path="/default_pages" component={DefaultPages} />
       <Route path="/documentation" component={Documentation} />
-      <Route path="/wallet" component={Wallet} />
     </ContainerWrap>
   </div>
 );

@@ -20,9 +20,7 @@ import {
 } from '@/shared/components/account/AccountElements';
 import GoogleAuthBtn from '../AuthBtn/googleAuthBtn';
 import FacebookAuthBtn from '../AuthBtn/fbAuthBtn';
-import MetaMaskAuthBtn from '../AuthBtn/metaMaskAuthBtn';
 import MicrosoftAuthBtn from '../AuthBtn/microsoftAuthBtn';
-import WalletConnectAuthBtn from '../AuthBtn/walletConnectAuthBtn';
 
 const auth0Icon = `${process.env.PUBLIC_URL}/img/auth0.svg`;
 
@@ -61,8 +59,6 @@ const LogIn = ({ changeIsOpenModalFireBase }) => (
           >
             <img className="customizer__btn-icon" src={auth0Icon} alt="icon" />
           </AccountSocialButtonAuth0>
-          <MetaMaskAuthBtn />
-          <WalletConnectAuthBtn />
         </AccountSocial>
       </AccountCard>
     </AccountContent>

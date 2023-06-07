@@ -48,12 +48,6 @@ const SidebarContent = ({
         route="/fitness_dashboard"
         onClick={onClick}
       />
-      <SidebarLink
-        title="Wallet"
-        icon="earth"
-        route="/wallet"
-        onClick={onClick}
-      />
       <SidebarCategory title="Layout" icon="layers" collapse={collapse}>
         <SidebarNavLink as="button" type="button" onClick={changeToLight}>
           <SidebarLinkTitle>Light Theme</SidebarLinkTitle>

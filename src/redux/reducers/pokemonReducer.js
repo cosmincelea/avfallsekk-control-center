@@ -21,6 +21,7 @@ export default handleActions(
       };
     },
     [fetchPokemonSuccess](state, { payload }) {
+      console.log(payload)
       return {
         ...state,
         pokemon: payload,

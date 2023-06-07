@@ -108,9 +108,6 @@ export const Table = styled(BootstrapTable).withConfig({
       border-bottom: 1px solid ${colorBorder(props)};
     }
     
-    tbody tr:last-child {
-      border-bottom: none;
-    }
   `}
 
   ${props => props.headAccent && `

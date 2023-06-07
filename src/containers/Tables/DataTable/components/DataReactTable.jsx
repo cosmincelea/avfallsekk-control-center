@@ -18,6 +18,8 @@ const reorder = (rows, startIndex, endIndex) => {
 
 const DataReactTable = ({ reactTableData }) => {
   const [rows, setData] = useState(reactTableData.tableRowsData);
+
+  console.log()
   const [isEditable, setIsEditable] = useState(false);
   const [isResizable, setIsResizable] = useState(false);
   const [isSortable, setIsSortable] = useState(false);
@@ -27,7 +29,7 @@ const DataReactTable = ({ reactTableData }) => {
   const [withDragAndDrop, setWithDragAndDrop] = useState(false);
   const [withPagination, setWithPaginationTable] = useState(false);
   const [withSearchEngine, setWithSearchEngine] = useState(true);
-
+  console.log(isEditable)
   const handleClickIsEditable = () => {
     if (!withDragAndDrop) setIsDisabledResizable(!isDisabledResizable);
     setIsResizable(false);

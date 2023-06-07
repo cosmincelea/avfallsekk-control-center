@@ -11,7 +11,6 @@ import { LoadScript } from '@react-google-maps/api';
 import initAuth0 from '@/shared/components/account/auth/withAuth0';
 import TimepickerStyles from '@/shared/components/form/date-pickers/timepickerStyles';
 import Loading from '@/shared/components/Loading';
-import WalletConnectProvider from '@/shared/components/account/auth/WalletConnect';
 import Router from './Router';
 import store from './store';
 import ScrollToTop from './ScrollToTop';
@@ -77,7 +76,6 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter basename="/easydev">
         <I18nextProvider i18n={i18n}>
-          <WalletConnectProvider>
             <ConnectedThemeComponent>
               <LoadScript
                 loadingElement={<Loading loading />}
@@ -88,7 +86,6 @@ const App = () => {
                 </ScrollToTop>
               </LoadScript>
             </ConnectedThemeComponent>
-          </WalletConnectProvider>
         </I18nextProvider>
       </BrowserRouter>
     </Provider>

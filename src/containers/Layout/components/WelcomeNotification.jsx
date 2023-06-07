@@ -31,7 +31,7 @@ const WelcomeNotification = (theme, rtl, setIsNotificationShown, isNotificationS
     },
   };
   if (!isNotificationShown) {
-    welcomeNotification.notice(initialProps);
+    //welcomeNotification.notice(initialProps);
   }
 };
 

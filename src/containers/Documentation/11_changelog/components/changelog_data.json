@@ -4,11 +4,6 @@
     "date": "06-April-2023",
     "changes": [
       {
-        "name": "Wallet page added",
-        "path": "/wallet",
-        "changes": []
-      },
-      {
         "name": "Documentation",
         "changes": [
           {
@@ -35,10 +30,6 @@
     "version": "4.2.0",
     "date": "17-February-2023",
     "changes": [
-      {
-        "name": "WalletConnect integration added",
-        "changes": []
-      },
       {
         "name": "Amcharts updated",
         "changes": [

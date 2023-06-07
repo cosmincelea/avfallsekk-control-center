@@ -163,9 +163,9 @@ ReactTableConstructor.defaultProps = {
   tableOptions: [{
     columns: [],
     data: [],
-    setFilterValue: () => {},
-    updateDraggableData: () => {},
-    updateEditableData: () => {},
+    setFilterValue: () => { },
+    updateDraggableData: () => { },
+    updateEditableData: () => { },
     defaultColumn: [],
     withDragAndDrop: false,
     dataLength: null,
@@ -188,7 +188,7 @@ const TableWrap = styled.div`
   ${props => (props.pagination ? `
     margin-bottom: 1rem;
   ` : `
-    height: 458px;
+    height: auto;
   
     tbody {
       top: 30px;

@@ -33,7 +33,3 @@ export const UserProps = shape({
   fullName: string,
   avatar: string,
 });
-
-export const WalletProps = shape({
-  id: string,
-});

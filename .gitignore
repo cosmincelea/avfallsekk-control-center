@@ -128,3 +128,12 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+.firebase/
+.firebaserc
+.github/
+.vscode/
+.DS_Store
+ package-lock.json
+yarn.lock

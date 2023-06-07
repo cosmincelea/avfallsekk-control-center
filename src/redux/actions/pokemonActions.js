@@ -10,16 +10,10 @@ export const fetchPokemon = count => async (dispatch) => {
     dispatch(fetchPokemonRequest());
     const { data: { results } } = await pokemonApi.getPokemons(count);
 
-    const pokemonData = results.map(async (pokemon, index) => {
-      const { data: pokemonInfo } = await pokemonApi.getPokemon(pokemon.url);
-      return {
-        ...results[index],
-        ...pokemonInfo,
-      };
-    });
+ 
 
-    const pokemons = await Promise.all(pokemonData);
-    dispatch(fetchPokemonSuccess(pokemons));
+
+    dispatch(fetchPokemonSuccess(results));
   } catch (e) {
     dispatch(fetchPokemonError());
   }

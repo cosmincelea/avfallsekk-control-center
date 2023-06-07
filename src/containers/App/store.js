@@ -9,13 +9,12 @@ import {
   authReducer,
   roundBordersReducer,
   blocksShadowsReducer,
-  pokemonReducer,
+  ordersReducer,
   cryptoTrendsReducer,
   globalQuotesReducer,
   quotesBySymbolReducer,
   topTenReducer,
   cryptoHistoryReducer,
-  walletReducer,
 } from '@/redux/reducers/index';
 import appConfigReducer from '@/redux/reducers/appConfigReducer';
 import covidReducer from '../Maps/VectorMapWithRequestData/redux/covidReducer';
@@ -33,13 +32,12 @@ const reducer = combineReducers({
   user: authReducer,
   covid: covidReducer,
   todo: todoReducer,
-  pokemon: pokemonReducer,
+  orders: ordersReducer,
   cryptoTrends: cryptoTrendsReducer,
   globalQuotes: globalQuotesReducer,
   quotesBySymbol: quotesBySymbolReducer,
   topTen: topTenReducer,
   cryptoHistory: cryptoHistoryReducer,
-  wallet: walletReducer,
 });
 const store = createStore(reducer, applyMiddleware(thunk));
 

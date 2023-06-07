@@ -81,5 +81,4 @@ const CreateTableData = () => {
   const reactTableData = { tableHeaderData: columns, tableRowsData: data };
   return reactTableData;
 };
-
 export default CreateTableData;
