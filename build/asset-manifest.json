@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0068cbb2.css",
+    "main.js": "/static/js/main.b310c41b.js",
+    "static/media/bestpractices_mobile.svg": "/static/media/bestpractices_mobile.88a5a7d075fc9746d5af93e4d78e5be1.svg",
+    "static/media/bestpractices_tablet.svg": "/static/media/bestpractices_tablet.7ef5a576d0954b5e3969bfcba9d9f7d8.svg",
+    "static/media/bestpractices_desktop.svg": "/static/media/bestpractices_desktop.7afeb40aca2d47e1434821bd3c0361b8.svg",
+    "static/media/bottom_logo.svg": "/static/media/bottom_logo.e31b5df991c0d8b0287c883a388bd4e6.svg",
+    "static/media/header_logo.svg": "/static/media/header_logo.8fa7d3d52068d8a28224b3df0190bc61.svg",
+    "static/media/aspirity_logo.svg": "/static/media/aspirity_logo.c064986e230f0ed37d08cc244fb3580c.svg",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/contact_bg.svg": "/static/media/contact_bg.3ce3feb37aa960f21657a6fe05ff0481.svg",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/faq_bg.svg": "/static/media/faq_bg.d64a15b3702cd9ecea6684653fd3ccdf.svg",
+    "static/media/sprout.svg": "/static/media/sprout.0f645636024b2c14a5c013d3d4871c3a.svg",
+    "static/media/demos_background_back.svg": "/static/media/demos_background_back.7b6373d8faf95332960ebea1e222529f.svg",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.0068cbb2.css",
+    "static/js/main.b310c41b.js"
+  ]
+}

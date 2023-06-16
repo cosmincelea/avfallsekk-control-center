@@ -7,15 +7,15 @@ import {
   Spinner,
 } from 'react-bootstrap';
 import {
-  Card, CardBody, CardTitleWrap, CardTitle,
+  Card, CardBody, CardTitleWrap, CardTitleGreen,
 } from '@/shared/components/Card';
 import styled from 'styled-components';
 import { colorAccent } from '@/utils/palette';
 import { FormContainer } from '@/shared/components/form/FormElements';
-import { fetchOrders } from '../../../redux/actions/woocommerceActions';
 import ReactTableBase from '@/shared/components/table/ReactTableBase';
 import ReactTableCustomizer from '@/shared/components/table/components/ReactTableCustomizer';
 import { Button } from '@/shared/components/Button';
+import { fetchZipZones } from '../../../redux/actions/directusActions';
 
 const reorder = (rows, startIndex, endIndex) => {
   const result = Array.from(rows);
@@ -27,10 +27,9 @@ const reorder = (rows, startIndex, endIndex) => {
 
 const ApiTable = () => {
   const dispatch = useDispatch();
-  const results = useSelector(state => state.orders);
-  const [rows, setData] = useState(results.orders);
+  const zip_zones_results = useSelector(state => state.zip_zones);
+  const isFetching = useSelector(state => state.zip_zones.isFetching);
 
-  const isFetching = useSelector(state => state.orders.isFetching);
 
   const [isEditable, setIsEditable] = useState(true);
   const [isResizable, setIsResizable] = useState(false);
@@ -69,30 +68,31 @@ const ApiTable = () => {
     setWithSearchEngine(!withSearchEngine);
   };
 
-  const updateDraggableData = (result) => {
-    const items = reorder(
-      rows,
-      result.source.index,
-      result.destination.index,
-    );
-    setData(items);
-  };
+  // const updateDraggableData = (result) => {
+  //   const items = reorder(
+  //     rows,
+  //     result.source.index,
+  //     result.destination.index,
+  //   );
+  //   setData(items);
+  // };
 
   const onFetch = () => {
-    dispatch(fetchOrders());
+    dispatch(fetchZipZones());
+    // dispatch(fetchOrders());
   };
 
-  const updateEditableData = (rowIndex, columnId, value) => {
-    setData(old => old.map((item, index) => {
-      if (index === rowIndex) {
-        return {
-          ...old[rowIndex],
-          [columnId]: value,
-        };
-      }
-      return item;
-    }));
-  };
+  // const updateEditableData = (rowIndex, columnId, value) => {
+  //   setData(old => old.map((item, index) => {
+  //     if (index === rowIndex) {
+  //       return {
+  //         ...old[rowIndex],
+  //         [columnId]: value,
+  //       };
+  //     }
+  //     return item;
+  //   }));
+  // };
 
   const tableConfig = {
     isEditable,
@@ -110,102 +110,108 @@ const ApiTable = () => {
       accessor: 'id',
       Header: 'Order Id',
     }, {
-      accessor: 'total',
-      Header: 'Order Total',
+      accessor: 'henting_address',
+      Header: 'Henteadresse',
     }, {
-      accessor: 'status',
-      Header: 'Order Status',
-    }, {
+      accessor: 'henting_dato',
+      Header: 'Hentedato',
+    },
+    {
       accessor: 'billing.first_name',
       Header: 'First Name',
-    },
-    {
+    }, {
       accessor: 'billing.last_name',
       Header: 'Last Name',
-    },
-    {
+    }, {
       accessor: 'customer_note',
       Header: 'Customer Note',
     }, {
-      accessor: 'order_comments',
-      Header: 'Order Comments',
-    }, {
-      accessor: 'henting_address',
-      Header: 'Henteadresse',
+      accessor: 'total',
+      Header: 'Order Total',
+    },
+    {
+      accessor: 'standard_sekk',
+      Header: 'Standard sekk QTY',
+    },
+    {
+      accessor: 'stor_sekk',
+      Header: 'Stor sekk QTY',
     },
 
   ];
 
+
+
+
   useEffect(() => {
-    dispatch(fetchOrders());
+    dispatch(fetchZipZones());
   }, [dispatch]);
-  useEffect(() => {
-    const data = results.orders
-    data.forEach(function (element) {
-      element.henting_address = element.meta_data.filter(function (el) {
-        console.log(el.key)
-        return el.key == '_henting_address'
-      }).value;
-    });
 
-    setData(data)
-  }, [results]);
-
-  return (
-    <Container>
-      <Row>
-        <Col md={12} lg={12} xl={12}>
-          <Card height='auto'>
-            <CardBody height='auto'>
-              <HeaderWrap>
-                <CardTitleWrap>
-                  <CardTitle>Orders</CardTitle>
-                </CardTitleWrap>
-                <ReactTableCustomizer
-                  handleClickIsEditable={handleClickIsEditable}
-                  handleClickIsResizable={handleClickIsResizable}
-                  handleClickIsSortable={handleClickIsSortable}
-                  handleClickWithDragAndDrop={handleClickWithDragAndDrop}
-                  handleClickWithPagination={handleClickWithPagination}
-                  handleClickWithSearchEngine={handleClickWithSearchEngine}
-                  isEditable={isEditable}
-                  isResizable={isResizable}
-                  isSortable={isSortable}
-                  isDisabledDragAndDrop={isDisabledDragAndDrop}
-                  isDisabledEditable={isDisabledEditable}
-                  isDisabledResizable={isDisabledResizable}
-                  withDragAndDrop={withDragAndDrop}
-                  withPagination={withPagination}
-                  withSearchEngine={withSearchEngine}
-                  fullCustomizer
-                />
-                <Button variant="secondary" onClick={onFetch}>Fetch</Button>
-              </HeaderWrap>
-              {isFetching && (
-                <div className="text-center">
-                  <TableSpinner animation="border" />
-                </div>
-              )}
+  if (zip_zones_results == undefined) { return <h1>Loading</h1> }
+  var returnComponent = []
 
 
-              {rows && !isFetching && (
-                <ReactTableBase
-                  key={withSearchEngine || isResizable || isEditable ? 'modified' : 'common'}
-                  columns={tableHeaders}
-                  data={rows}
-                  updateEditableData={updateEditableData}
-                  updateDraggableData={updateDraggableData}
-                  tableConfig={tableConfig}
-                />
-              )}
+  zip_zones_results.zip_zones.forEach(element => {
+    if (element.orders.length !== 0) {
+      returnComponent.push(<Container key={element.range_id}>
+        <Row>
+          <Col md={12} lg={12} xl={12}>
+            <Card height='auto'>
+              <CardBody height='auto'>
+                <HeaderWrap>
+                  <CardTitleWrap>
+                    <CardTitleGreen>{element.range_name}</CardTitleGreen>
+                  </CardTitleWrap>
+                  <ReactTableCustomizer
+                    handleClickIsEditable={handleClickIsEditable}
+                    handleClickIsResizable={handleClickIsResizable}
+                    handleClickIsSortable={handleClickIsSortable}
+                    handleClickWithDragAndDrop={handleClickWithDragAndDrop}
+                    handleClickWithPagination={handleClickWithPagination}
+                    handleClickWithSearchEngine={handleClickWithSearchEngine}
+                    isEditable={isEditable}
+                    isResizable={isResizable}
+                    isSortable={isSortable}
+                    isDisabledDragAndDrop={isDisabledDragAndDrop}
+                    isDisabledEditable={isDisabledEditable}
+                    isDisabledResizable={isDisabledResizable}
+                    withDragAndDrop={withDragAndDrop}
+                    withPagination={withPagination}
+                    withSearchEngine={withSearchEngine}
+                    fullCustomizer
+                  />
+                  <Button variant="secondary" onClick={onFetch}>Fetch</Button>
+                </HeaderWrap>
+                {isFetching && (
+                  <div className="text-center">
+                    <TableSpinner animation="border" />
+                  </div>
+                )}
 
 
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
-  );
+                {element.orders && !isFetching && (
+                  <ReactTableBase
+                    key={withSearchEngine || isResizable || isEditable ? 'modified' : 'common'}
+                    columns={tableHeaders}
+                    data={element.orders}
+                    // updateEditableData={updateEditableData}
+                    // updateDraggableData={updateDraggableData}
+                    tableConfig={tableConfig}
+                  />
+                )}
+
+
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+      </Container>)
+    }
+  });
+
+
+
+  return returnComponent
 };
 
 export default ApiTable;

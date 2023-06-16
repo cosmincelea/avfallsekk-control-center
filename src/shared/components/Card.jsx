@@ -44,6 +44,16 @@ export const CardTitle = styled.h5`
   `}
 `;
 
+export const CardTitleGreen = styled.h1`
+  font-size: 33px;
+  text-align: ${left};
+  font-weight: 700;
+  color:rgba(0,255,0,0.45);
+  ${props => props.centered && `
+    text-align: center;
+  `}
+`;
+
 export const CardSubhead = styled.p`
   text-transform: none;
   font-size: 12px;

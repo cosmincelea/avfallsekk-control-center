@@ -19,7 +19,6 @@ import {
   AccountWrap,
 } from '@/shared/components/account/AccountElements';
 import GoogleAuthBtn from '../AuthBtn/googleAuthBtn';
-import FacebookAuthBtn from '../AuthBtn/fbAuthBtn';
 import MicrosoftAuthBtn from '../AuthBtn/microsoftAuthBtn';
 
 const auth0Icon = `${process.env.PUBLIC_URL}/img/auth0.svg`;
@@ -44,7 +43,6 @@ const LogIn = ({ changeIsOpenModalFireBase }) => (
           <p>Or Easily Using</p>
         </AccountOr>
         <AccountSocial>
-          <FacebookAuthBtn />
           <GoogleAuthBtn />
           <MicrosoftAuthBtn />
           <AccountSocialButtonFirebase

@@ -14,14 +14,14 @@ import {
 } from '@/shared/components/form/FormElements';
 import renderCheckBoxField from '../../form/CheckBox';
 import {
- AccountButton, AccountButtons, AccountForgotPassword, LoginForm, 
+  AccountButton, AccountButtons, AccountForgotPassword, LoginForm,
 } from '../AccountElements';
 
 const LogInFormPhoto = ({
   onSubmit, errorMessage, fieldUser, typeFieldUser, form,
 }) => {
   const errorMsg = useSelector(state => state.user.error);
-  
+
   return (
     <Form onSubmit={onSubmit}>
       {({ handleSubmit }) => (

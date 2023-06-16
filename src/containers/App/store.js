@@ -19,6 +19,7 @@ import {
 import appConfigReducer from '@/redux/reducers/appConfigReducer';
 import covidReducer from '../Maps/VectorMapWithRequestData/redux/covidReducer';
 import todoReducer from '../Todo/redux/reducer';
+import zipZonesReducer from '../../redux/reducers/zipZonesReducer';
 
 const reducer = combineReducers({
   theme: themeReducer,
@@ -33,6 +34,7 @@ const reducer = combineReducers({
   covid: covidReducer,
   todo: todoReducer,
   orders: ordersReducer,
+  zip_zones: zipZonesReducer,
   cryptoTrends: cryptoTrendsReducer,
   globalQuotes: globalQuotesReducer,
   quotesBySymbol: quotesBySymbolReducer,
